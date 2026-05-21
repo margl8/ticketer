@@ -25,10 +25,11 @@ async function expandProducts(inputText, url) {
   const lines = inputText.trim().split("\n");
 
   const parsed = lines.map(line => {
-    const parts = line.split("\t");
-    console.log(parts)
+    // Регулярное выражение [\t,] ищет либо табуляцию, либо запятую
+    const parts = line.split(/[\t,]/);
+    console.log(parts);
     return parts;
-  });
+});
 
   const normalized = parsed.map(([offer_id, qty]) => {
     const cleaned = [offer_id?.trim(), Number(qty?.trim().replace(/,.+/g, ""))];
