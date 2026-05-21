@@ -3,11 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>SKU Ticket Generator</title>
+    <title>Генератор этикеток</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.5/JsBarcode.all.min.js"></script>
     <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+
     <style>
         body {
             font-family: Arial;
@@ -28,22 +30,28 @@
 
 <body>
 
-    <h3>Ticket generator (40×58 mm)</h3>
+    <form>
+        <h2>Генератор этикеток (40×58 mm)</h3>
 
-    <p>Enter SKUs (one per line):</p>
-    <input type="text" id="url"
-        value="https://sheetjson.com/spreadsheets/d/1d9wCGxcFZy2ZcFLqu41vaNXJrGBzjHviJjWY64I-NEc/edit?gid=1194754456#gid=1194754456" />
-    <br>
-    <input type="text" id="name" value="Отгрузка" />
+        <input type="text" id="url"
+            value="https://sheetjson.com/spreadsheets/d/1d9wCGxcFZy2ZcFLqu41vaNXJrGBzjHviJjWY64I-NEc/edit?gid=1194754456#gid=1194754456" />
+        <br><br>
+        <label for="name">Название отгрузки</label>
+        <input type="text" id="name" value="Отгрузка" /><br>
 
-    <br>
-    <textarea id="skuInput">
-319215,2
+        <br>
+        <label for="skuInput">Введите список артикулов и количества этикеток. Каждый артикул через новую линию. 
+<br>Используйте запятую либо tab для разделения артикула и количества.</label>
+
+        <textarea id="skuInput" placeholder="319215,2
+128517, 2
+935514  2">
 </textarea>
 
-    <br>
+        <br>
 
-    <button onclick="generate()">Generate PDF</button>
+        <button onclick="generate()">Сгенерировать</button>
+    </form>
 
     <canvas id="barcodeCanvas" style="display:none"></canvas>
 
