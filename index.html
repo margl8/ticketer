@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>SKU Ticket Generator</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.5/JsBarcode.all.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        textarea {
+            width: 300px;
+            height: 120px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>Ticket generator (40×58 mm)</h3>
+
+    <p>Enter SKUs (one per line):</p>
+    <input type="text" id="url"
+        value="https://sheetjson.com/spreadsheets/d/1d9wCGxcFZy2ZcFLqu41vaNXJrGBzjHviJjWY64I-NEc/edit?gid=1194754456#gid=1194754456" />
+    <br>
+    <input type="text" id="name" value="Отгрузка" />
+
+    <br>
+    <textarea id="skuInput">
+319215,2
+</textarea>
+
+    <br>
+
+    <button onclick="generate()">Generate PDF</button>
+
+    <canvas id="barcodeCanvas" style="display:none"></canvas>
+
+
+</body>
+
+
+</html>
